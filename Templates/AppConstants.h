@@ -1,0 +1,1 @@
+#define kInterfaceOrientationSupport YES
