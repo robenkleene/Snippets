@@ -1,0 +1,1 @@
+echo ${VARIABLE?"VARIABLE is not set"}
