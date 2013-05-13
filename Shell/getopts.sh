@@ -1,11 +1,9 @@
 usage () {
-  echo "Usage: command [-a] [-b argument]"
+	echo "Usage: command [-a] [-b argument]"
 }
 
-while getopts ab:h option
-do
-	case "$option"
-	in
+while getopts ab:h option; do
+	case "$option" in
 	    a)  echo "-a found"
 			;;
 	    b)  echo "-b found with $OPTARG"
