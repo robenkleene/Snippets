@@ -1,9 +1,9 @@
 #import <Foundation/Foundation.h>
 
 int main(void) {
-    @autoreleasepool {
+	@autoreleasepool {
 		NSLog(@"Hello World");
-    }
+	}
 
 	return 0;
 }
