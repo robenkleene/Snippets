@@ -17,7 +17,7 @@
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context 
 {
-    if (object == _myObject && [keyPath isEqualToString:kNameKeyPath]) {
+    if (object == self.myObject && [keyPath isEqualToString:kNameKeyPath]) {
         NSString *changedName = [change objectForKey:NSKeyValueChangeNewKey];
         // do something with changedName
     }
