@@ -8,9 +8,8 @@ options = {
 
 option_parser = OptionParser.new do |opts|
   executable_name = File.basename($PROGRAM_NAME)
-  opts.banner = "Usage: #{executable_name} [options]"
-  opts.banner= <<-EOS
-Usage: #{executable_name} [options] database_name
+  opts.banner = <<-EOS
+Usage: #{executable_name} [options]
 
   EOS
   opts.on("-l",
