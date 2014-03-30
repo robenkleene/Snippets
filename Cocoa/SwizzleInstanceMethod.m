@@ -7,7 +7,7 @@
 
 - (void)replacementReceiveMessage:(const struct BInstantMessage *)arg1 {
     NSLog(@"arg1 is %@", arg1);
-    [self replacementReceiveMessage:arg1];
+    [self replacementReceiveMessage:arg1]; // Calls original method
 }
 
 + (void)load {
