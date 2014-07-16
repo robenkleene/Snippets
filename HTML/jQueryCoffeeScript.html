@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>jQuery &amp; CoffeeScript</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/coffee-script/1.1.2/coffee-script.min.js"></script>
+<script type="text/coffeescript">
+$('#link').on 'click', -> 
+    $('#text').trigger('event-name')
+
+$('#text').on 'event-name', ->
+    alert "My Event"
+</script>
+<style>
+header[role="banner"], section, footer {
+	margin: 20px;
+}
+</style>
+</head>
+<body>
+    <p id="text">Some text.</p>
+    <p><a id="link" href="">Action</a></a>
+<!-- 1P -->
+</body>
+</html>
