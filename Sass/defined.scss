@@ -1,0 +1,11 @@
+@mixin my_mixin() {
+  // Set the variable to false only if it's not already set.
+  $base-color: false !default;
+
+  // Check the guaranteed-existing variable. If it didn't exist 
+  // before calling this mixin/function/whatever, this will 
+  // return false.
+  @if $base-color {
+     color: $base-color;
+  }
+}
