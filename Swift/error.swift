@@ -1,12 +1,11 @@
-extension NSError {
-    class func unexecutableLaunchPathError(launchPath: String) -> NSError {
-        return errorWithDescription("Launch path is not executable: \(launchPath)", code: 43)
-    }
-}
-
-extension NSError {
-    class func errorWithDescription(description: String, code: Int) -> NSError {
-        let userInfo = [NSLocalizedDescriptionKey: description]
-        return NSError(domain: errorDomain, code: code, userInfo: userInfo)
-    }
+enum PluginLoadError: ErrorType {
+    case InvalidBundleError(path: String)
+    case InvalidInfoDictionaryError(URL: NSURL)
+    case InvalidFileExtensionsError(infoDictionary: [NSObject : AnyObject])
+    case InvalidCommandError(infoDictionary: [NSObject : AnyObject])
+    case InvalidNameError(infoDictionary: [NSObject : AnyObject])
+    case InvalidIdentifierError(infoDictionary: [NSObject : AnyObject])
+    case InvalidHiddenError(infoDictionary: [NSObject : AnyObject])
+    case InvalidEditableError(infoDictionary: [NSObject : AnyObject])
+    case InvalidDebugModeEnabledError(infoDictionary: [NSObject : AnyObject])   
 }
