@@ -1,4 +1,4 @@
-#pragma mark - setUp & tearDown
+#pragma mark - Set Up & Tear Down
 
 - (void)setUp {
     [super setUp];
