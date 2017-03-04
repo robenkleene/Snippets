@@ -1,2 +1,2 @@
-TEMPFILE=$(mktemp /tmp/File-XXXXXX)
-echo $TEMPFILE
+tempfile=$(mktemp /tmp/File-XXXXXX)
+echo $tempfile

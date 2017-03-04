@@ -1,3 +1,3 @@
 usage () {
-	echo "Usage: command [-a] [-b argument]"
+  echo "Usage: command [-a] [-b argument]"
 }

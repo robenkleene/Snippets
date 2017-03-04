@@ -1,5 +1,5 @@
-function FunctionName {
-	VARIABLE=$1
+function my_function() {
+  a_variable=$1
 }
-FunctionName "Hello World"
-echo $VARIABLE
+my_function "Hello World"
+echo $a_variable
