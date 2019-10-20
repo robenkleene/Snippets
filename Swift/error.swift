@@ -1,4 +1,4 @@
-enum PluginLoadError: ErrorType {
+enum PluginLoadError: Error {
     case invalidBundleError(path: String)
     case invalidInfoDictionaryError(URL: NSURL)
     case invalidFileExtensionsError(infoDictionary: [NSObject : AnyObject])
