@@ -1,4 +1,4 @@
-class Node<T: Equatable> {
+class Node<T> {
     var value: T? = nil
     var next: Node? = nil
 }
@@ -12,7 +12,7 @@ extension Node: CustomStringConvertible {
     }
 }
 
-class LinkedList<T: Equatable> {
+class LinkedList<T> {
   var head = Node<T>()
 }
 
