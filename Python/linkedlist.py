@@ -21,3 +21,16 @@ class LinkedList:
 
     def __repr__(self):
         return self.head.chain_string()
+
+def make_list(arr):
+    llist = LinkedList()
+    curr = None
+    for item in arr:
+        node = ListNode(item)
+        if llist.head == None:
+            llist.head = node
+        else:
+            curr.next = node
+        curr = node
+    return llist
+
