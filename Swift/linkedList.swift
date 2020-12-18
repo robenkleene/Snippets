@@ -1,6 +1,6 @@
 class Node<T> {
-    var value: T? = nil
-    var next: Node? = nil
+    var value: T?
+    var next: Node?
 }
 
 extension Node: CustomStringConvertible {
