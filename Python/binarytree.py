@@ -1,19 +1,19 @@
 from collections import deque
 
 class Node:
-    def __init__(self, data):
+    def __init__(self, value):
         self.left = None
         self.right = None
-        self.data = data
+        self.value = value
 
     def __repr__(self):
-        return self.data
+        return self.value
 
     def chain_string(self, level=0):
         result = ""
         if self.left != None:
             result += self.left.chain_string(level + 1)
-        result += ' ' * 4 * level + ' -> ' + str(self.data) + "\n"
+        result += ' ' * 4 * level + ' -> ' + str(self.value) + "\n"
         if self.right != None:
             result += self.right.chain_string(level + 1)
         return result
