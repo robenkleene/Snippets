@@ -1,9 +1,9 @@
-class Node<T> {
+class ListNode<T> {
     var value: T?
-    var next: Node?
+    var next: ListNode?
 }
 
-extension Node: CustomStringConvertible {
+extension ListNode: CustomStringConvertible {
     var description: String {
         guard let value = value else {
             return "nil"
@@ -13,13 +13,13 @@ extension Node: CustomStringConvertible {
 }
 
 class LinkedList<T> {
-  var head = Node<T>()
+  var head = ListNode<T>()
 }
 
 extension LinkedList: CustomStringConvertible {
     var description: String {
         var values = [String]()
-        var cur: Node? = head
+        var cur: ListNode? = head
         while cur != nil {
             if let cur = cur {
                 values.append("\(cur)")
