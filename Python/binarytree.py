@@ -1,21 +1,22 @@
 from collections import deque
 
 class Node:
-    def __init__(self, value):
+    def __init__(self, val):
         self.left = None
         self.right = None
-        self.value = value
+        self.val = val
 
     def __repr__(self):
-        return self.value
+        return self.val
 
-    def chain_string(self, level=0):
+    def chain_string(self, level=0, left=None):
         result = ""
         if self.left != None:
-            result += self.left.chain_string(level + 1)
-        result += ' ' * 4 * level + ' -> ' + str(self.value) + "\n"
+            result += self.left.chain_string(level + 1, True)
+        char = '' if left == None else '/' if left else '\\'
+        result += ' ' * 4 * level + char + str(self.val) + "\n"
         if self.right != None:
-            result += self.right.chain_string(level + 1)
+            result += self.right.chain_string(level + 1, False)
         return result
 
 class Tree:
@@ -41,4 +42,3 @@ def make_tree(arr):
     tree = Tree()
     tree.root = root
     return tree
-
