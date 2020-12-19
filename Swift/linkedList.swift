@@ -1,24 +1,22 @@
-typealias ListNode = Node<Int>
-
-class Node<T> {
+class ListNode<T> {
     var value: T
-    var next: Node?
+    var next: ListNode?
 
     init(value: T) {
         self.value = value
     }
 }
 
-extension Node: CustomStringConvertible {
+extension ListNode: CustomStringConvertible {
     var description: String {
         return "\(value)"
     }
 }
 
-extension Node {
+extension ListNode {
     func chainString() -> String {
         var values = [String]()
-        var cur: Node? = self
+        var cur: ListNode? = self
         while cur != nil {
             if let cur = cur {
                 values.append("\(cur)")
@@ -30,7 +28,10 @@ extension Node {
 }
 
 class LinkedList<T> {
-    var head: Node<T>?
+    var head: ListNode<T>?
+    init(head: ListNode<T>? = nil) {
+        self.head = head
+    }
 }
 
 extension LinkedList: CustomStringConvertible {
@@ -44,9 +45,9 @@ extension LinkedList: CustomStringConvertible {
 
 func makeList<T>(from array: [T]) -> LinkedList<T> {
     let llist = LinkedList<T>()
-    var current: Node<T>?
+    var current: ListNode<T>?
     for item in array {
-        let node = Node<T>(value: item)
+        let node = ListNode<T>(value: item)
         if let current = current {
             current.next = node
         } else {
@@ -56,3 +57,4 @@ func makeList<T>(from array: [T]) -> LinkedList<T> {
     }
     return llist
 }
+
