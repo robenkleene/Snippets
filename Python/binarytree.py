@@ -7,7 +7,7 @@ class Node:
         self.val = val
 
     def __repr__(self):
-        return self.val
+        return str(self.val)
 
     def chain_string(self, level=0, left=None):
         result = ""
