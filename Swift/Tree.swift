@@ -1,3 +1,5 @@
+import Foundation
+
 class Node<T>: CustomStringConvertible {
     var left: Node?
     var right: Node?
