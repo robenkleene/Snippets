@@ -27,9 +27,9 @@ class Node:
             result += self.right.chain_string(level + 1, False)
         return result
 
-class Tree:
+class BinaryTree:
     """
-    Tree
+    BinaryTree
     """
     def __init__(self):
         self.root = None
