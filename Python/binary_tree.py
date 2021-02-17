@@ -1,7 +1,6 @@
 """
 tree
 """
-from collections import deque
 
 class Node:
     """
@@ -38,68 +37,54 @@ class Tree:
     def __repr__(self):
         return self.root.chain_string()
 
+    def insert(self, val):
+        """
+        insert
+        """
+        def insert_recu(node, val):
+            if node is None:
+                return Node(val)
+
+            if val > node.val:
+                node.right = insert_recu(node.right, val)
+            else:
+                node.left = insert_recu(node.left, val)
+            return node
+
+        if self.root is None:
+            self.root = Node(val)
+            return self.root
+        return insert_recu(self.root, val)
+
     @staticmethod
     def make(arr):
         """
         Make from string
         """
-        n = iter(arr)
-        root = Node(next(n))
-        fringe = deque([root])
-        while True:
-            head = fringe.popleft()
-            try:
-                head.left = Node(next(n))
-                fringe.append(head.left)
-                head.right = Node(next(n))
-                fringe.append(head.right)
-            except StopIteration:
-                break
         tree = Tree()
-        tree.root = root
+        for val in arr:
+            tree.insert(val)
         return tree
 
-def dfs_iter(start, goal=None):
+def insert(node, val):
     """
-    dfs_iter
+    insert
     """
-    visited, stack = [], [start]
-    while stack:
-        curr = stack.pop()
-        visited.append(curr)
-        if goal is not None and curr.val == goal:
-            return visited
-        if curr.left is not None:
-            stack.append(curr.left)
-        if curr.right is not None:
-            stack.append(curr.right)
-    return visited
+    if node is None:
+        return Node(val)
 
-def bfs_iter(start, goal=None):
-    """
-    bfs_iter
-    """
-    visited, queue = [], [start]
-    while queue:
-        curr = queue.pop(0)
-        visited.append(curr)
-        if goal is not None and curr.val == goal:
-            return visited
-        if curr.left is not None:
-            queue.append(curr.left)
-        if curr.right is not None:
-            queue.append(curr.right)
-    return visited
+    if val < node.val:
+        node.left = insert(node.left, val)
+    else:
+        node.right = insert(node.right, val)
+    return node
 
-def dfs_recu(curr, goal=None, visited=None):
+def search(node, val):
     """
-    dfs_recu
+    search
     """
-    visited = visited or [curr]
-    if goal is not None and curr.val == goal:
-        return visited
-    if curr.left is not None:
-        visited += dfs_recu(curr.left, goal, [curr.left])
-    if curr.right is not None:
-        visited += dfs_recu(curr.right, goal, [curr.right])
-    return visited
+    if node is None or val == node.val:
+        return node
+    if val < node.val:
+        return search(node.left, val)
+    return search(node.right, val)
