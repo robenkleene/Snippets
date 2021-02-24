@@ -61,7 +61,7 @@ class BinaryTree:
         """
         Make from string
         """
-        tree = Tree()
+        tree = BinaryTree()
         for val in arr:
             tree.insert(val)
         return tree
