@@ -49,9 +49,13 @@ class Tree:
         while True:
             head = fringe.popleft()
             try:
-                head.left = Node(next(n))
+                value = next(n)
+                if value is not None:
+                    head.left = Node(value)
                 fringe.append(head.left)
-                head.right = Node(next(n))
+                value = next(n)
+                if value is not None:
+                    head.right = Node(value)
                 fringe.append(head.right)
             except StopIteration:
                 break
