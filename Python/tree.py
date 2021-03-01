@@ -107,3 +107,13 @@ def dfs_recu(curr, goal=None, visited=None):
     if curr.right is not None:
         visited += dfs_recu(curr.right, goal, [curr.right])
     return visited
+
+def max_depth(node):
+    """
+    max_depth
+    """
+    if node is None:
+        return 0
+    left = max_depth(node.left)
+    right = max_depth(node.right)
+    return max(left, right) + 1
