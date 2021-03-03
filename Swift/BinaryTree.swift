@@ -39,13 +39,46 @@ class BinaryTree<T: Comparable>: CustomStringConvertible {
         return root.chainString()
     }
 
-    convenience init(source: [T]) {
-        self.init()
-        insert(source)
+    static func makeNodes(from arr: [T?]) -> Node<T>? {
+        var source = arr
+        guard let value = source.removeFirst() else {
+            return nil
+        }
+        let root = Node(value: value)
+        var fringe = [root]
+        while true {
+            let head = fringe.removeFirst()
+            guard source.count > 0 else {
+                break
+            }
+            if let leftValue = source.removeFirst() {
+                let left = Node(value: leftValue)
+                head.left = left
+                fringe.append(left)
+            }
+            guard source.count > 0 else {
+                break
+            }
+            if let rightValue = source.removeFirst() {
+                let right = Node(value: rightValue)
+                head.right = right
+                fringe.append(right)
+            }
+        }
+        return root
     }
 
-    func insert(_ arr: [T]) {
-        for val in arr {
+    convenience init(source: [T?]) {
+        self.init()
+        make(from: source)
+    }
+
+    func make(from arr: [T?]) {
+        root = Self.makeNodes(from: arr)
+    }
+
+    func insert(_ arr: [T?]) {
+        for case let val? in arr {
             insert(val)
         }
     }
