@@ -124,3 +124,10 @@ func dfsRecu<T: Equatable>(start: Node<T>, goal: T? = nil, visited: [Node<T>]? =
 
     return visited
 }
+
+func maxDepth<T>(of node: Node<T>?) -> Int {
+    guard let node = node else {
+        return 0
+    }
+    return max(maxDepth(of: node.left), maxDepth(of: node.right)) + 1
+}
