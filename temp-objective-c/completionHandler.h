@@ -1,1 +1,0 @@
-- (id)initWithCompletionHandler:(void (^)(BOOL success))completionHandler;

@@ -1,1 +1,0 @@
-NSArray<NSString*>* arr = @[@"str"];

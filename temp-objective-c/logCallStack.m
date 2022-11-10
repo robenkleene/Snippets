@@ -1,1 +1,0 @@
-NSLog(@"%@",[NSThread callStackSymbols]);

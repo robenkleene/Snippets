@@ -1,3 +1,0 @@
-NSArray *fileNames = [files valueForKey:@"file"];
-
-NSArray *fileNames = [files valueForKeyPath:@"file"]; // Can traverse objects, e.g., "file.filename," etc...
