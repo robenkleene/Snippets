@@ -1,0 +1,5 @@
+@if unit($line-height) == "%" {
+	$leading: $line-height / 1% / 100 * 1em;
+} @else if unit($line-height) == "px" {
+	$leading: $line-height / ($line-height / 1em * $browser-default-font-size) * 1em;
+}
