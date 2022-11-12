@@ -1,19 +1,22 @@
-usage () {
-  echo "Usage: command [-a] [-b argument]"
-}
-
-OPTIND=1 # Multiple `getopts` calls fail otherwise
-while getopts ab:h option; do
+force="false"
+while getopts ":p:fh" option; do
   case "$option" in
-    a) echo "-a found"
+    p)
+      file_path="$OPTARG"
       ;;
-    b) echo "-b found with $OPTARG"
+    f)
+      force="true"
       ;;
-    h) usage
-      exit 0 
+    h)
+      echo "Usage: command [-hf] [-p <file_path>]"
+      exit 0
       ;;
-    \?) echo "Invalid option or missing argument"
-      usage
+    :)
+      echo "Option -OPTARG requires an argument" >&2
+      exit 1
+      ;;
+    \?)
+      echo "Invalid option: -OPTARG" >&2
       exit 1
       ;;
   esac
